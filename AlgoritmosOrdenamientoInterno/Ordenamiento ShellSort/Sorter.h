@@ -13,6 +13,6 @@ template <typename T, typename Nodo>
 class Sorter {
 public:
     static void shellSort(Nodo* primero, const std::function<bool(T*, T*)>& comparar);
-    static void shellSortString(const string& str);
+    static void shellSortString(string& str);
 };
 #endif // SORTER_H
