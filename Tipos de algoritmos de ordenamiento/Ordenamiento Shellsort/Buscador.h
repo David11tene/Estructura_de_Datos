@@ -9,7 +9,7 @@
 template <typename Nodo>
 class Buscador {
 public:
-    static void buscarSecuencial(Nodo* cabeza, const std::string& valor, const std::string& atributo);
+    static void buscarTablasHash(Nodo* cabeza, const std::string& valor, const std::string& atributo);
 };
 
 #include "Buscador.cpp"
