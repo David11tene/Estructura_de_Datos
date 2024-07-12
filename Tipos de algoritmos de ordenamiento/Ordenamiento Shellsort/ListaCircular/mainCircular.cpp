@@ -319,11 +319,9 @@ void menuBuscarCircular(int tipoBusqueda) {
                         if (lista.listaVacia()) {
                             cout << "Lista vacia. No se ha registrado ningun usuario." << endl;
                         } else {
-                            if(tipoBusqueda == SECUENCIAL){
+                            if(tipoBusqueda == HASH){
                                 string numCedula = lista.ingresarCedula("Ingrese el numero de cedula a buscar");
-                                Buscador<NodoCircular<string>>::buscarSecuencial(lista.getPrimero(), numCedula, "cedula");
-                            } else {
-                                cout << "Busqueda Binaria" << endl;
+                                Buscador<NodoCircular<string>>::buscarTablasHash(lista.getPrimero(), numCedula, "cedula");
                             }
                         }
                         break;
@@ -332,12 +330,10 @@ void menuBuscarCircular(int tipoBusqueda) {
                         if (lista.listaVacia()) {
                             cout << "Lista vacia. No se ha registrado ningun usuario." << endl;
                         } else {
-                            if (tipoBusqueda == SECUENCIAL) {
+                            if (tipoBusqueda == HASH) {
                                 string primerNombre = lista.ingresarLetras("Ingrese el nombre a buscar");
                                 primerNombre = lista.convertirMayusculas(primerNombre);
-                                Buscador<NodoCircular<string>>::buscarSecuencial(lista.getPrimero(), primerNombre, "nombre");
-                            } else {
-                                cout << "Busqueda Binaria" << endl;
+                                Buscador<NodoCircular<string>>::buscarTablasHash(lista.getPrimero(), primerNombre, "nombre");
                             }
                         }   
                         break;
@@ -346,12 +342,10 @@ void menuBuscarCircular(int tipoBusqueda) {
                         if (lista.listaVacia()) {
                             cout << "Lista vacia. No se ha registrado ningun usuario." << endl;
                         } else {
-                            if (tipoBusqueda == SECUENCIAL) {
+                            if (tipoBusqueda == HASH) {
                                 string apellido = lista.ingresarLetras("Ingrese el apellido a buscar");
                                 apellido = lista.convertirMayusculas(apellido);
-                                Buscador<NodoCircular<string>>::buscarSecuencial(lista.getPrimero(), apellido, "apellido");
-                            } else {
-                                cout << "Busqueda Binaria" << endl;
+                                Buscador<NodoCircular<string>>::buscarTablasHash(lista.getPrimero(), apellido, "apellido");
                             }
                         }
                         break;
@@ -369,8 +363,7 @@ void menuBuscarCircular(int tipoBusqueda) {
 }
 void menuBusquedaCircular(){
     const char* menu[] = {
-        "Busqueda secuencial",
-        "Busqueda binaria",
+        "Busqueda Hash",
         "Volver"
     };
     int size = sizeof(menu) / sizeof(menu[0]);
@@ -396,7 +389,7 @@ void menuBusquedaCircular(){
                 }
                 break;
             case 13:
-                if(currentSelection == 2){
+                if(currentSelection == 1){
                     return;
                 } else {
                     menuBuscarCircular(currentSelection);
